@@ -5,7 +5,7 @@
         <div class="documents-view__filters">
             <filters-panel @filter="handleContractsFilter" />
 
-            <ui-button>Добавить документ</ui-button>
+            <ui-button class="documents-view__filters-button" @click="handleModalOpen">Добавить документ</ui-button>
         </div>
 
         <div v-if="loading">Loading...</div>
@@ -17,21 +17,26 @@
             />
         </div>
     </div>
+
+    <add-document-modal v-model="showModal" />
 </template>
 
 <script lang="ts" setup>
 import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
-import StudentCard from '@/components/students/StudentCard.vue'
-import ContractCard from '@/components/students/ContractCard.vue'
-import FiltersPanel from '@/components/students/FiltersPanel.vue'
+import StudentCard from '@/components/StudentCard.vue'
+import ContractCard from '@/components/ContractCard.vue'
+import FiltersPanel from '@/components/FiltersPanel.vue'
+import AddDocumentModal from '@/components/AddDocumentModal.vue'
 import UiButton from '@/components/UI/UiButton.vue'
 import { useContractsStore } from '@/stores/contracts.store'
 import type { StudentType } from '@/types/student.type'
 import type { FiltersType } from '@/types/filters.type'
 
-const { contracts, filteredContracts, loading } = storeToRefs(useContractsStore())
+const { filteredContracts, loading } = storeToRefs(useContractsStore())
 const { getContracts, applyFilters } = useContractsStore()
+
+const showModal = ref(false)
 
 const student = ref<StudentType>({
     logo: 'girl.png',
@@ -51,6 +56,10 @@ const handleContractsFilter = (filters: FiltersType): void => {
     applyFilters(filters)
 }
 
+const handleModalOpen = (): void => {
+    showModal.value = true
+}
+
 onMounted(getContracts)
 </script>
 
@@ -61,6 +70,10 @@ onMounted(getContracts)
         align-items: center;
         justify-content: space-between;
         margin-bottom: 30px;
+
+        &-button {
+            width: auto;
+        }
     }
 
     &__contracts {

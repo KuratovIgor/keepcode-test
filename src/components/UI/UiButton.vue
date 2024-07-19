@@ -16,6 +16,10 @@ withDefaults(defineProps<Props>(), {
 
 <style lang="scss" scoped>
 .ui-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     font-size: 16px;
     border-radius: 10px;
     padding: 17px 40px;

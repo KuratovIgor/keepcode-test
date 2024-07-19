@@ -15,6 +15,20 @@
             "endDate": "04.07.2022"
         },
         {
+            "name": "Договор №003",
+            "fileType": "doc",
+            "status": "failed",
+            "startDate": "04.11.2021",
+            "endDate": "04.12.2022"
+        },
+        {
+            "name": "Договор №004",
+            "fileType": "xls",
+            "status": "success",
+            "startDate": "04.02.2021",
+            "endDate": "04.03.2022"
+        },
+        {
             "name": "Справка",
             "fileType": "doc",
             "startDate": "04.07.2021",
