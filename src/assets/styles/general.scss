@@ -1,0 +1,14 @@
+@import "@/assets/styles/resources/";
+
+html, #app, body {
+    @include sizes-classes;
+
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
