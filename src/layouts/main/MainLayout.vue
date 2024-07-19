@@ -1,12 +1,17 @@
 <template>
     <div class="main-layout">
         <main-sidebar />
-        <router-view />
+
+        <div class="w-100">
+            <main-header />
+            <router-view />
+        </div>
     </div>
 </template>
 
 <script lang="ts" setup>
 import MainSidebar from '@/layouts/main/components/MainSidebar.vue'
+import MainHeader from '@/layouts/main/components/MainHeader.vue'
 </script>
 
 <style lang="scss" scoped>

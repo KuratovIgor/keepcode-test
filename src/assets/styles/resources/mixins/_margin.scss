@@ -21,6 +21,16 @@
       margin-top: auto !important;
       margin-bottom: auto !important;
     }
+
+    .w#{$screen-name}-25 {
+      width: 25% !important;
+    }
+    .w#{$screen-name}-50 {
+      width: 50% !important;
+    }
+    .w#{$screen-name}-100 {
+      width: 100% !important;
+    }
   
     @each $index, $size in $sizes {
       .m#{$screen-name}-#{$index} {
