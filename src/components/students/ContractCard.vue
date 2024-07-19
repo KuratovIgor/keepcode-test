@@ -12,7 +12,10 @@
             </ui-status>
             <div v-else class="mb-30"></div>
             
-            <div class="contract-card__dates">{{ contract.startDate }} - {{ contract.endDate }}</div>
+            <div class="contract-card__dates">
+                {{ contract.startDate }}
+                <span v-if="contract.endDate">- {{ contract.endDate }}</span>
+            </div>
 
             <printer-icon class="mr-30" />
             <edit-icon class="mr-30" />
@@ -49,7 +52,7 @@ enum ContractStatus {
     failed = 'Расторгнут',
 }
 
-const contractStatus = computed(() => ContractStatus[props.contract.status])
+const contractStatus = computed(() => props.contract.status ? ContractStatus[props.contract.status] : '')
 </script>
 
 <style lang="scss" scoped>

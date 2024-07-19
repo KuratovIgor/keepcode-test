@@ -1,20 +1,24 @@
 <template>
     <div class="filter-panel">
-        <v-select class="filter-panel__filter" placeholder="Тип документа" :options="documentTypeOptions" @option:selected="handleDocumentTypeSelected" />
-        <v-select class="filter-panel__filter" placeholder="Статус" :options="statusOptions" @option:selected="handleStatusSelected" />
-        <v-select class="filter-panel__filter" placeholder="Сортировать по" :options="sortOptions" @option:selected="handleSortSelected" />
+        <v-select v-model="filters.type" class="filter-panel__filter" placeholder="Тип документа" :options="documentTypeOptions" />
+        <v-select v-model="filters.status" class="filter-panel__filter" placeholder="Статус" :options="statusOptions" />
+        <v-select v-model="filters.sortBy" class="filter-panel__filter" placeholder="Сортировать по" :options="sortOptions" />
     </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
+import type { FiltersType, FilterOptionType } from '@/types/filters.type'
 
-type FilterOptionType = {
-    label: string
-    value: string
-}
+const emit = defineEmits<{
+    filter: [value: FiltersType],
+}>()
 
-const documentTypeOptions = ['PDF', 'DOC', 'XLS']
+const documentTypeOptions: FilterOptionType[] = [
+    {label: 'pdf', value: 'pdf'},
+    {label: 'doc', value: 'doc'},
+    {label: 'xls', value: 'xls'},
+]
 
 const statusOptions: FilterOptionType[] = [
     {label: 'Расторгнут', value: 'failed'},
@@ -26,23 +30,15 @@ const sortOptions: FilterOptionType[] = [
     {label: 'По дате', value: 'date'},
 ]
 
-const filters = reactive({
-    type: '',
-    status: '',
-    sortBy: '',
+const filters: FiltersType = reactive({
+    type: null,
+    status: null,
+    sortBy: null,
 })
 
-const handleDocumentTypeSelected = (option): void => {
-    filters.type = option
-}
-
-const handleStatusSelected = (option): void => {
-    filters.status = option.value
-}
-
-const handleSortSelected = (option): void => {
-    filters.sortBy = option.value
-}
+watch(filters, (newFilters) => {
+    emit('filter', newFilters)
+})
 </script>
 
 <style lang="scss" scoped>

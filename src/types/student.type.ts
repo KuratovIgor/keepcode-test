@@ -1,4 +1,5 @@
 export type StudentType = {
+    logo: string
     name: string
     gender: 'male' | 'female'
     telegramLink: string

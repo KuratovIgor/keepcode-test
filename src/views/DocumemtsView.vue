@@ -3,7 +3,7 @@
         <student-card class="mb-90" :student="student" />
 
         <div class="documents-view__filters">
-            <filters-panel />
+            <filters-panel @filter="handleContractsFilter" />
 
             <ui-button>Добавить документ</ui-button>
         </div>
@@ -11,7 +11,7 @@
         <div v-if="loading">Loading...</div>
         <div v-else class="documents-view__contracts">
             <contract-card
-                v-for="(contract, index) in contracts"
+                v-for="(contract, index) in filteredContracts"
                 :key="index"
                 :contract="contract"
             />
@@ -27,10 +27,11 @@ import ContractCard from '@/components/students/ContractCard.vue'
 import FiltersPanel from '@/components/students/FiltersPanel.vue'
 import UiButton from '@/components/UI/UiButton.vue'
 import { useContractsStore } from '@/stores/contracts.store'
-import type { StudentType, ContractType } from '@/types/student.type'
+import type { StudentType } from '@/types/student.type'
+import type { FiltersType } from '@/types/filters.type'
 
-const { contracts, loading } = storeToRefs(useContractsStore())
-const { getContracts } = useContractsStore()
+const { contracts, filteredContracts, loading } = storeToRefs(useContractsStore())
+const { getContracts, applyFilters } = useContractsStore()
 
 const student = ref<StudentType>({
     logo: 'girl.png',
@@ -45,6 +46,10 @@ const student = ref<StudentType>({
     birthday: '25.04.2004',
     address: 'г. Краснодар, ул. Советская 24, кв. 208',
 })
+
+const handleContractsFilter = (filters: FiltersType): void => {
+    applyFilters(filters)
+}
 
 onMounted(getContracts)
 </script>
