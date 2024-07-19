@@ -1,0 +1,58 @@
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body,
+  ul {
+    padding: 0;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  ol {
+    padding: 0;
+    margin: 0;
+  }
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    background-color: transparent;
+  }
+  
+  img {
+    border-style: none;
+  }
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
