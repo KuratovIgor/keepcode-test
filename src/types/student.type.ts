@@ -10,3 +10,11 @@ export type StudentType = {
     birthday: string
     address: string
 }
+
+export type ContractType = {
+    name: string
+    fileType: 'pdf' | 'doc' | 'xls'
+    status?: 'success' | 'failed'
+    startDate: string
+    endDate?: string
+}

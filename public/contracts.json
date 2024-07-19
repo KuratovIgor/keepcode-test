@@ -1,0 +1,30 @@
+{
+    "data": [
+        {
+            "name": "Договор №001",
+            "fileType": "pdf",
+            "status": "success",
+            "startDate": "04.07.2021",
+            "endDate": "04.07.2022"
+        },
+        {
+            "name": "Договор №002",
+            "fileType": "doc",
+            "status": "failed",
+            "startDate": "04.07.2021",
+            "endDate": "04.07.2022"
+        },
+        {
+            "name": "Справка",
+            "fileType": "doc",
+            "startDate": "04.07.2021",
+            "endDate": "04.07.2022"
+        },
+        {
+            "name": "Анкета",
+            "fileType": "xls",
+            "startDate": "04.07.2021",
+            "endDate": "04.07.2022"
+        }
+    ]
+}

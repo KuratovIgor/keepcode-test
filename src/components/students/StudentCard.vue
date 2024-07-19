@@ -19,7 +19,7 @@
 
         <div class="student-card__info student-card__status">
             <div class="student-card__info-title">Cтатус</div>
-            <div>{{ student.status }}</div>
+            <ui-status>{{ student.status }}</ui-status>
         </div>
 
         <div class="student-card__info student-card__phone">
@@ -48,7 +48,8 @@
 </template>
 
 <script lang="ts" setup>
-import { StudentType } from '@/types/student.type'
+import UiStatus from '@/components/UI/UiStatus.vue'
+import type { StudentType } from '@/types/student.type'
 import TelegramIcon from '@/assets/icons/telegram-icon.svg'
 import WhatsappIcon from '@/assets/icons/whatsapp-icon.svg'
 import ViberIcon from '@/assets/icons/viber-icon.svg'
