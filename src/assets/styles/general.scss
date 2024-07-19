@@ -6,10 +6,14 @@ html, #app, body {
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: $color-background;
+    background-color: $color-light-gray;
 }
 
 body {
     overflow: hidden;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 36px;
 }

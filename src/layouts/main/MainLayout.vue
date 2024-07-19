@@ -4,7 +4,10 @@
 
         <div class="w-100">
             <main-header />
-            <router-view />
+
+            <div class="main-layout__page">
+                <router-view />
+            </div>
         </div>
     </div>
 </template>
@@ -18,5 +21,9 @@ import MainHeader from '@/layouts/main/components/MainHeader.vue'
 .main-layout {
     display: flex;
     width: 100%;
+
+    &__page {
+        padding: 26px 90px;
+    }
 }
 </style>
