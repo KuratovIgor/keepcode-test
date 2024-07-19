@@ -17,7 +17,6 @@ withDefaults(defineProps<Props>(), {
 
 <style lang="scss" scoped>
 .ui-status {
-    font-size: 18px;
     display: flex;
     align-items: center;
 

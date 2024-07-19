@@ -75,7 +75,6 @@ defineProps<Props>()
     border-radius: 10px;
     background-color: $color-white;
     box-shadow: 0px 4px 5px 0px #0000001A;
-    font-size: 18px;
 
     &__logo {
         grid-row: 1/3;

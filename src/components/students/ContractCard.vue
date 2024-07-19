@@ -58,7 +58,6 @@ const contractStatus = computed(() => ContractStatus[props.contract.status])
     justify-content: space-between;
     background-color: $color-white;
     border-radius: 10px;
-    font-size: 18px;
     padding: 20px;
     max-width: 378px;
     width: 100%;

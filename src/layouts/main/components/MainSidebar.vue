@@ -57,7 +57,6 @@ import EmployeesIcon from '@/assets/icons/employees-icon.svg'
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-size: 18px;
         color: $color-white;
         margin-bottom: 20px;
         padding: 20px;
