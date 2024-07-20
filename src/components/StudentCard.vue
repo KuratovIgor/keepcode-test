@@ -1,12 +1,12 @@
 <template>
     <div class="student-card">
         <div class="student-card__logo">
-            <img src="@/assets/images/girl.png" />
+            <img :src="logoUrl" alt="logo" />
         </div>
 
         <div class="student-card__name">
             <h1 class="mr-30">{{ student.name }}</h1>
-            <img src="@/assets/images/female.png" />
+            <img :src="genderImageUrl" alt="gender" />
         </div>
 
         <div class="student-card__contacts">
@@ -48,6 +48,7 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import UiStatus from '@/components/UI/UiStatus.vue'
 import type { StudentType } from '@/types/student.type'
 import TelegramIcon from '@/assets/icons/telegram-icon.svg'
@@ -60,7 +61,10 @@ interface Props {
     student: StudentType
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const logoUrl = computed(() => new URL(`/src/assets/images/${props.student.logo}`, import.meta.url).href)
+const genderImageUrl = computed(() => new URL(`/src/assets/images/${props.student.gender}.png`, import.meta.url).href)
 </script>
 
 <style lang="scss" scoped>
@@ -91,10 +95,6 @@ defineProps<Props>()
         grid-column: 2/4;
         display: flex;
         align-items: center;
-
-        h1 {
-            color: $color-blue;
-        }
     }
 
     &__contacts {
@@ -108,11 +108,9 @@ defineProps<Props>()
         text-decoration: underline;
     }
 
-    &__info {
-        &-title {
-            color: $color-gray;
-            font-size: 14px;
-        }
+    &__info-title {
+        color: $color-gray;
+        font-size: 14px;
     }
 
     &__status {

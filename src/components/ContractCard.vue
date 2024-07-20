@@ -10,7 +10,7 @@
             >
                 {{ contractStatus }}
             </ui-status>
-            <div v-else class="mb-30"></div>
+            <div v-else class="mb-30" />
             
             <div class="contract-card__dates">
                 {{ contract.startDate }}
@@ -22,10 +22,8 @@
             <remove-icon />
         </div>
 
-        <div class="contract-card__file-wrapper">
-            <pdf-icon v-if="contract.fileType === 'pdf'" />
-            <doc-icon v-if="contract.fileType === 'doc'" />
-            <xls-icon v-if="contract.fileType === 'xls'" />
+        <div class="contract-card__file">
+            <component :is="contractFileIcon" />
         </div>
     </div>
 </template>
@@ -52,7 +50,14 @@ enum ContractStatus {
     failed = 'Расторгнут',
 }
 
+const ContractFileIcon = {
+    pdf: PdfIcon,
+    doc: DocIcon,
+    xls: XlsIcon,
+} as const
+
 const contractStatus = computed(() => props.contract.status ? ContractStatus[props.contract.status] : '')
+const contractFileIcon = computed(() => ContractFileIcon[props.contract.fileType])
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +75,7 @@ const contractStatus = computed(() => props.contract.status ? ContractStatus[pro
         margin-bottom: 18px;
     }
 
-    &__file-wrapper {
+    &__file {
         background-color: $color-light-gray;
         max-width: 117px;
         width: 100%;

@@ -10,6 +10,10 @@ interface Props {
     status?: 'success' | 'failed'
 }
 
+defineSlots<{
+    default: void
+}>()
+
 withDefaults(defineProps<Props>(), {
     status: 'success',
 })

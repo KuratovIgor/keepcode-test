@@ -1,8 +1,8 @@
 <template>
-    <div class="filter-panel">
-        <v-select v-model="filters.type" class="filter-panel__filter" placeholder="Тип документа" :options="documentTypeOptions" />
-        <v-select v-model="filters.status" class="filter-panel__filter" placeholder="Статус" :options="statusOptions" />
-        <v-select v-model="filters.sortBy" class="filter-panel__filter" placeholder="Сортировать по" :options="sortOptions" />
+    <div class="d-flex w-100 g-30">
+        <v-select v-model="filters.type" class="w-100 w-max-200" placeholder="Тип документа" :options="documentTypeOptions" />
+        <v-select v-model="filters.status" class="w-100 w-max-200" placeholder="Статус" :options="statusOptions" />
+        <v-select v-model="filters.sortBy" class="w-100 w-max-200" placeholder="Сортировать по" :options="sortOptions" />
     </div>
 </template>
 
@@ -40,14 +40,3 @@ watch(filters, (newFilters) => {
     emit('filter', newFilters)
 })
 </script>
-
-<style lang="scss" scoped>
-.filter-panel {
-    display: flex;
-
-    &__filter {
-        margin-right: 30px;
-        width: 200px;
-    }
-}
-</style>

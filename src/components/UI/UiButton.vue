@@ -9,6 +9,10 @@ interface Props {
     type?: 'default' | 'cancel'
 }
 
+defineSlots<{
+    default: void
+}>()
+
 withDefaults(defineProps<Props>(), {
     type: 'default'
 })
@@ -27,6 +31,8 @@ withDefaults(defineProps<Props>(), {
     text-transform: uppercase;
     font-weight: 700;
     background-color: $color-yellow;
+    cursor: pointer;
+    text-wrap: nowrap;
     transition: 0.1s linear;
 
     &--cancel {
@@ -34,7 +40,6 @@ withDefaults(defineProps<Props>(), {
     }
 
     &:hover {
-        cursor: pointer;
         opacity: 0.8;
     }
 }

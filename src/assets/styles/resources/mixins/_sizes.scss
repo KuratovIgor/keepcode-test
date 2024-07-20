@@ -1,0 +1,28 @@
+@import "@/assets/styles/resources/variables/";
+
+@mixin sizes-classes() {  
+    @each $index, $size in $sizes {
+      .w-max-#{$index} {
+        max-width: $size !important;
+      }
+      .m-#{$index} {
+        margin: $size !important;
+      }
+      .ml-#{$index} {
+        margin-left: $size !important;
+      }
+      .mr-#{$index} {
+        margin-right: $size !important;
+      }
+      .mt-#{$index} {
+        margin-top: $size !important;
+      }
+      .mb-#{$index} {
+        margin-bottom: $size !important;
+      }
+
+      .g-#{$index} {
+        gap: $size !important;
+      }
+    }
+  }
