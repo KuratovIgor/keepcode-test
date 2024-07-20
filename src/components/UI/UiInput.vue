@@ -1,7 +1,7 @@
 <template>
     <div class="ui-input">
         <span v-if="required" class="ui-input__required">*</span>
-        <input v-bind="$attrs" class="ui-input__inner" />
+        <input v-model="modelValue" v-bind="$attrs" class="ui-input__inner" />
     </div>
 </template>
 
@@ -11,6 +11,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const modelValue = defineModel()
 </script>
 
 <style lang="scss" scoped>
